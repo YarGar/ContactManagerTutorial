@@ -374,6 +374,8 @@ namespace ContactManager.Controllers
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
+                        //THE FOLLOWING LINE WAS COMMENTED OUT SO THAT NEW USERS ARE NOT AUTOMATICALLY ADDED TO THE "canEdit" ROLE
+                        //await UserManager.AddToRoleAsync(user.Id, "canEdit");
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                         return RedirectToLocal(returnUrl);
                     }

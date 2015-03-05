@@ -36,6 +36,8 @@ namespace ContactManager.Controllers
         }
 
         // GET: CM/Create
+        //AUTHORIZE ANNOTATIONS THROUGHOUT THE PROGRAM WILL ONLY ALLOW USERS WHO HAVE THE "canEdit" ROLE TO MODIFY THE DATABASE
+        [Authorize(Roles="canEdit")]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +48,7 @@ namespace ContactManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "canEdit")]
         public ActionResult Create([Bind(Include = "ContactID,Name,Address,City,State,Zip,Email")] Contact contact)
         {
             if (ModelState.IsValid)
@@ -59,6 +62,7 @@ namespace ContactManager.Controllers
         }
 
         // GET: CM/Edit/5
+        [Authorize(Roles = "canEdit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +82,7 @@ namespace ContactManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "canEdit")]
         public ActionResult Edit([Bind(Include = "ContactID,Name,Address,City,State,Zip,Email")] Contact contact)
         {
             if (ModelState.IsValid)
@@ -90,6 +95,7 @@ namespace ContactManager.Controllers
         }
 
         // GET: CM/Delete/5
+        [Authorize(Roles = "canEdit")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +113,7 @@ namespace ContactManager.Controllers
         // POST: CM/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "canEdit")]
         public ActionResult DeleteConfirmed(int id)
         {
             Contact contact = db.Contacts.Find(id);

@@ -8,6 +8,9 @@ namespace ContactManager.Controllers
 {
     public class HomeController : Controller
     {
+        //AllowAnonymouS ANNOTATIONS ALLOW ANONYMOUS USES TO VIEW THE INDEX INFORMATION, 
+        //BUT WILL FORSE A LOGIN TO SEE ANYTHING ELSE
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();

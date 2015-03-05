@@ -3,6 +3,7 @@ using System.Globalization;
 
 namespace ContactManager.Models
 {
+    //CONTACT CLASS. USES "DATATYPE" IN ORDER TO UTILIZE THE NEW HTML5 FUNCTIONALITIES
     public class Contact
     {
         public int ContactID { get; set; }

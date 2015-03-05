@@ -58,11 +58,13 @@ namespace ContactManager
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+
+            //REMOVED GOOGLE INFORMATION. I'M NOT SURE YET HOW TO PUBLISH A WEBSITE WITHOUT EXPOSING THIS SENSITIVE INFO. -YG
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "xxxxx",
+                ClientSecret = "xxxxx"
+            });
         }
     }
 }
